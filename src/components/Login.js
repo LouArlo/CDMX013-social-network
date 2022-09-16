@@ -1,4 +1,5 @@
 import { onNavigate } from "../main.js";
+//import {auth} from './lib/auth.js';
 
 export const Login = () =>{
     const div = document.createElement('div');
@@ -22,3 +23,4 @@ export const Login = () =>{
 
     return div;
 };
+

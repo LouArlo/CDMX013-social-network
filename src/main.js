@@ -1,6 +1,9 @@
 import {Welcome } from './components/Welcome.js'
 import {Login } from './components/Login.js';
 import {Register} from  './components/Register.js';
+//import {auth} from './lib/auth.js';
+// console.log(auth);
+
 
 const root = document.getElementById('root');
 
@@ -30,8 +33,6 @@ window.onpopstate = () => {
 };
 
 root.appendChild(component());
-
-
 
 
 
