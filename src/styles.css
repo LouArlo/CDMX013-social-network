@@ -1,64 +1,97 @@
-body {
-    background: #323a46;
-    font-family: Arial;
-    margin-top: 0%;
-    padding: 20px;
-    box-sizing: border-box;
-    
-}
+/*@media all and (max-width: 360px) {
+    /* Too narrow to support three columns 
+   main { display: block; }
+  }*/
 
-div {
-    padding: 20px;
-    box-sizing: border-box;
-    width: 80%;
-    float: left;
-    max-width: 1000px;
-    min-width: 400px;
-    height: 90%;
-    max-height: 800px;
-    margin: 0 auto;
-   background-color: #CDF1F9;
-   /* background-image: url(start-Page.png);*/
-    background-repeat: no-repeat;
-    overflow: hidden;
-    /*position: relative;*/
+   main {
+            display: grid; /*| inline-grid;*/
+   }
+
+  
+ main {
+    grid-template-columns: [first] 20vw [line2] 80vw [end]20vw;
+    /*grid-template-rows: [row1-start] 200px [row1-end] 400px [row2] 250px [third-line] 300px [last-line];*/
+    grid-template-rows: [row1-start] 15vh [row1-end] 60vh [row2] 15vh [third-line] 10vw [last-line];
+    background-image: url(start-Page2.png);
+    background-repeat: repeat;
+     }
+header {
+    grid-column: span 4;
+    grid-row: span 1;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}     
+
+ article { 
+    grid-column: span 3;  
+    grid-row: span 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+   /* align-items: flex-start;*/
+    
+    }
+ /*nav     { 
+    grid-area: a; /* auto min-width 
+    }*/
+
+ aside   { 
+    grid-column: span 4;  
+    grid-row: span 1;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    }
+    
+footer {
+    grid-column: span 3;
+    grid-row: span 4;
+    display: flex;
+    justify-content: center;
 }
 
 h2 {
-    padding: 20px;
-    box-sizing: border-box;
     width: 100%;
-    position: absolute;
-    top: 90px;
-    left: 100px;
+    margin-top: 5px;
+    margin-left: 90px
+   /* position: absolute;
+    top: 20px;
+    left: 200px;*/
 }
 
 img {
-    padding: 20px;
-    box-sizing: border-box;
-    width: 60%;
-    height: auto;
-    position: relative;
-    top: -20px;
-    margin: 5px;
+   
+    width: 55vw;
+    margin-top: 50px;
+  
 }
 
 .emailLabel {
-    top: 183px;
+    margin-top: 30px;
+    margin-left: 90px;
+    /*top: 183px;
     left: 120px;
-    position: absolute;
+    /*position: absolute;*/
 }
 
 .passLabel {
-    top: 283px;
-    left: 120px;
-    position: absolute;
+    margin-top: 30px;
+    margin-left: 90px;
+    /*position: absolute;
+    margin-top: -60px;
+    margin-left: 90px;*/
+    
+    
 }
 
 .suguestPass {
-    top: 360px;
-    left: 120px;
+   /* top: 360px;
+    left: 120px;*/
     position: absolute;
+    margin-top: 130px;
+    margin-left: 90px;
     font-size: x-small;
 }
 
@@ -73,42 +106,66 @@ img {
 }
 
 .slogan {
-    padding: 20px;
-    /*padding: 180px 0px;*/
-    box-sizing: border-box;
-    width: 100%;
-    top: 240px;
-    position: relative;
-    display: inline-block;
-    font-size: medium;
+    
+    width: 90%;
+    font-size: large;
+    font-family: arial;
+
 }
 
 .buttonLogIn {
-    position: absolute;
+    /*grid-area: 2/2;*/
+    /*position: absolute;*/
     width: 220px;
     height: 42px;
-    left: 160px;
-    top: 261px;
+   /* left: 160px;
+    top: 261px;*/
     background-color: rgba(245, 170, 200, 0.5);
     mix-blend-mode: darken;
     border: 1px solid #F5AAC8;
     border-radius: 10px;
+    margin-top: 50px;
+    margin-left: 90px;
 }
 
 .buttonLogIn:hover {
     background-color: #d487a6;
 }
 
-.buttonReg {
-    position: absolute;
+.buttonGoogle {
+    /*grid-area: 2/2;*/
+    /*position: absolute;*/
     width: 220px;
     height: 42px;
-    left: 160px;
-    top: 348px;
+   /* left: 160px;
+    top: 261px;*/
+    /*background-color: rgba(245, 170, 200, 0.5);*/
+    background-image: url(btn_google.png);
+    mix-blend-mode: darken;
+    border: 1px solid #F5AAC8;
+    border-radius: 10px;
+    margin-top: 49px;
+    margin-left: 90px;
+}
+
+/*.buttonGoogle:hover {
+    background-image: none;
+}*/
+
+.buttonReg {
+   /* grid-area: 2/2;*/
+
+   /* position: absolute;*/
+    width: 220px;
+    height: 42px;
+    /*left: 160px;
+    top: 348px;*/
     background-color: rgba(245, 170, 200, 0.5);
     mix-blend-mode: darken;
     border: 1px solid #F5AAC8;
     border-radius: 10px;
+    margin-top: 50px;
+    margin-left: 90px;
    
 }
 
@@ -117,17 +174,23 @@ img {
 }
 
 .buttonS {
-    position: absolute;
+  /*  position: absolute;*/
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+   /* margin-top: 80px;*/
+    margin-top: 100px;
+    margin-left: 230px;
     width: 110px;
     height: 42px;
     background-position: 50px 50px;
-    left: 228px;
-    top: 418px;
+    /*left: 228px;
+    top: 418px;*/
     background-color: rgba(245, 170, 200, 0.5);
     mix-blend-mode: darken;
     border: 1px solid #F5AAC8;
     border-radius: 10px;
-    z-index: 2;
+   /* z-index: 2;*/
 }
 
 .buttonS:hover {
@@ -135,7 +198,11 @@ img {
 }
 
 .buttonB {
-    position: absolute;
+    /*position: absolute;*/
+    display: flex;
+    align-items: flex-end; 
+    /*justify-content: center;
+   /* margin-top: 80px;*/
     background-image: url(/icon-back.png); /* 16px x 16px */
     background-color: transparent; /* make the button transparent */
     background-repeat: no-repeat;  /* make the background image appear only once */
@@ -145,18 +212,43 @@ img {
     height: 27px;           /* make this the size of your image */
     padding-left: 30px;     /* make text start to the right of the image */
     /*vertical-align: middle;  /*align the text vertically centered */
-    top:500px;
-    left:60px;
+    /*top:500px;
+    left:60px;*/
 }
 
+.buttonE {
+    /*  position: absolute;*/
+     /* display: flex;
+      align-items: center; 
+      justify-content: center;
+     /* margin-top: 80px;*/
+      margin-top: 34px;
+      margin-left: 204px;
+      width: 110px;
+      height: 42px;
+      background-position: 50px 50px;
+      /*left: 228px;
+      top: 418px;*/
+      background-color: rgba(245, 170, 200, 0.5);
+      mix-blend-mode: darken;
+      border: 1px solid #F5AAC8;
+      border-radius: 10px;
+     /* z-index: 2;*/
+  }
+  
+  .buttonE:hover {
+      background-color: #d487a6;
+  }
+  
 
 .inputE {
-    position: absolute;
+    /*position: absolute;
+    display: flex;
+    align-items: center; 
+    justify-content: center;*/
+    margin-left: 90px;
     width: 220px;
     height: 42px;
-    left: 120px;
-    top: 220px;
-
     background: #CDCDE0;
     mix-blend-mode: luminosity;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -166,13 +258,15 @@ img {
 
 
 .inputP {
-    position: absolute;
+   /* position: absolute;*/
+   /* display: flex;
+    align-items: center; 
+    justify-content: center;*/
+    margin-left: 90px;
+   /* margin-top: 100px;*/
     width: 220px;
     height: 42px;
-    left: 120px;
-    top: 320px;
     mask-type: luminance;
-
     background: #B5D9E0;
     mix-blend-mode: luminosity;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -180,38 +274,51 @@ img {
 }
 
 .messageE{
-    top: 183px;
-    left: 120px;
     position: absolute;
-    color: yellow;
+    margin-top: 170px;
+    margin-left: 90px;
+    font-size: medium;
+    
+    color: red;
+    
 }
 
-.footP {
-    padding: 220px 0px;
-    box-sizing: border-box;
+footer {
+    grid-column: span 2;
+    grid-row: span 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   /* grid-area: 4/2/4/4;
+    margin-top: 50px;
+    /*padding: 220px 0px;
+    box-sizing: border-box;*/
     width: 100%;
-    top: 190px;
-    position: relative;
-    display: inline-block;
-    font-size: xx-small;
+    /*top: 190px;
+    /*position: relative;
+    display: inline-block;*/
+    /*font-size: xx-small;
+    justify-self: center;*/
+
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 896px) {
    /* body {
-        background: wheat;
-    }*/
+        background: wheat;*/
+    }
 
-    .content {
+  /*-  .content {
         width: 85%;
     }
 
     .slogan {
         width: 100%;
     }
-}
+}*/
 
-@media screen and (max-width: 360px) {
-    .content {
+@media screen and (max-width: 414px) {
+    main {
         width: 100%;
     }
 

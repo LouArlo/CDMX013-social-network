@@ -1,51 +1,40 @@
-import {Welcome } from './components/Welcome.js'
-import {Login } from './components/Login.js';
-import {Register} from  './components/Register.js';
-//import {auth} from './lib/auth.js';
+import { Welcome } from './components/Welcome.js';
+import { Login } from './components/Login.js';
+import { Register } from './components/Register.js';
+// import {auth} from './lib/auth.js';
 // console.log(auth);
-
 
 const root = document.getElementById('root');
 
 const routes = {
-    '/': Welcome,
-    '/Login' : Login,
-    '/Register' : Register,
+  '/': Welcome,
+  '/Login': Login,
+  '/Register': Register,
 };
 
 export const onNavigate = (pathname) => {
-window.history.pushState(
+  window.history.pushState(
     {},
     pathname,
     window.location.origin + pathname,
-);
-root.removeChild(root.firstChild);
+  );
+  root.removeChild(root.firstChild);
 
-root.appendChild(routes[pathname]());
+  root.appendChild(routes[pathname]());
 };
 
 const component = routes[window.location.pathname];
 
 window.onpopstate = () => {
-    root.removeChild(root.firstChild);
+  root.removeChild(root.firstChild);
 
-    root.append(component());
+  root.append(component());
 };
 
 root.appendChild(component());
 
-
-
-
-
-
-
-
-
-
-
 // Este es el punto de entrada de tu aplicacion
 
-//import { myFunction } from './lib/index.js';
+// import { myFunction } from './lib/index.js';
 
-//myFunction();
+// myFunction();
