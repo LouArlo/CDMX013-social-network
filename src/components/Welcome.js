@@ -1,36 +1,45 @@
-import { onNavigate } from "../main.js";
+import { onNavigate } from '../main.js';
 
-export const Welcome = () =>{
-    const div = document.createElement('main');
-    const aside = document.createElement('p');
-    const buttonLogin = document.createElement('button');
-    const buttonRegister = document.createElement('button');
-    const logo = document.createElement('img');
-    const footPage = document.createElement('footer');
+export const Welcome = () => {
+  const main = document.createElement('main');
+  const header = document.createElement('header');
+  const article = document.createElement('article');
+  // const nav = document.createElement('nav');
+  const aside = document.createElement('aside');
+  const slogan = document.createElement('p');
+  const buttonLogin = document.createElement('button');
+  const buttonRegister = document.createElement('button');
+  const logo = document.createElement('img');
+  const footer = document.createElement('footer');
+  const footPage = document.createElement('p');
 
-    buttonLogin.textContent= 'Inicia Sesión';
-    buttonLogin.classList ="buttonLogIn";
+  logo.src = './logo.png';
+  header.appendChild(logo);
 
-    buttonRegister.textContent= 'Registrate';
-    buttonRegister.classList = "buttonReg";
+  buttonLogin.textContent = 'Inicia Sesión';
+  buttonLogin.classList = 'buttonLogIn';
+  article.appendChild(buttonLogin);
 
-    logo.src="logo.png";
+  buttonRegister.textContent = 'Registrate';
+  buttonRegister.classList = 'buttonReg';
+  article.appendChild(buttonRegister);
 
-    footPage.classList= 'footP'
+  slogan.textContent = 'Conecta (a nombre de tu mascota) y comparte cuidados, tips, educación, recreación, alimentación, entrenamiento, videos, fotos y mucho más';
+  slogan.classList = 'slogan';
+  aside.appendChild(slogan);
 
-    aside.textContent = "Conecta (a nombre de tu mascota) y comparte cuidados, tips, educación, recreación, alimentación, entrenamiento, videos, fotos y mucho más";
-    aside.classList ="slogan";
+  footPage.classList = 'footP';
+  footPage.textContent = 'Octubre 2022,   github.com/LouArlo';
+  footer.appendChild(footPage);
 
-    footPage.textContent ="Octubre 2022,   github.com/LouArlo";
+  buttonLogin.addEventListener('click', () => {
+    onNavigate('/Login');
+  });
+  buttonRegister.addEventListener('click', () => {
+    onNavigate('/Register');
+  });
 
-    buttonLogin.addEventListener('click', () => {
-        onNavigate('/Login');
-    });
-    buttonRegister.addEventListener('click', () => {
-        onNavigate('/Register');
-    });
-
-   // div.append(title, buttonLogin, buttonRegister);
-   div.append(logo, buttonLogin, buttonRegister, aside, footPage);
-    return div;
+  // div.append(title, buttonLogin, buttonRegister);
+  main.append(header, article, aside, footer);
+  return main;
 };
