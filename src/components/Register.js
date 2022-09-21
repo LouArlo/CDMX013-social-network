@@ -1,88 +1,110 @@
-import { onNavigate } from "../main.js";
-import {auth} from '../lib/auth.js';
+// eslint-disable-next-line import/no-unresolved
 import { createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
+import { onNavigate } from '../main.js';
+import { auth } from '../lib/auth.js';
+// import { resgister } from "../lib/auth.js";
 
 export const Register = () => {
-    const div = document.createElement('main');
-    const title = document.createElement('h2');
-    const buttonSend = document.createElement('button');
-    const buttonBack = document.createElement('button');
-    const emailLabel = document.createElement('p');
-    const inputEmail = document.createElement('input');
-    const passLabel = document.createElement('p');
-    const suguestPass= document.createElement('p');
-    const inputPass = document.createElement('input');
-    const logo = document.createElement('img');
-    const footPage = document.createElement('foother');
-    const messageError=document.createElement('p');
-     
-    messageError.classList="messageE";
+  const main = document.createElement('main');
+  const header = document.createElement('header');
+  const article = document.createElement('article');
+  const title2 = document.createElement('h2');
+  const buttonSend = document.createElement('button');
+  const buttonBack = document.createElement('button');
+  const emailLabel = document.createElement('p');
+  const inputEmail = document.createElement('input');
+  const passLabel = document.createElement('p');
+  const suguestPass = document.createElement('p');
+  const inputPass = document.createElement('input');
+  const logo = document.createElement('img');
+  const footer = document.createElement('footer');
+  const footPage = document.createElement('p');
+  const messageError = document.createElement('p');
 
-    inputEmail.classList = "inputE";
-    emailLabel.textContent = "Ingresa correo electrónico";
-    emailLabel.classList ="emailLabel";
+  logo.src = './logo.png';
+  header.appendChild(logo);
 
-    inputPass.classList = "inputP";
-    inputPass.type= "password";
-    passLabel.textContent = "Ingresa contraseña";
-    passLabel.classList= "passLabel";
-    suguestPass.textContent="Ingresa una contraseña mínimo de 8 caracteres letras y números";
-    suguestPass.classList='suguestPass';
+  title2.textContent = 'Registrate aquí!!';
+  article.appendChild(title2);
 
-    buttonSend.textContent = 'Enviar';
-    buttonSend.classList = "buttonS";
+  emailLabel.textContent = 'Ingresa correo electrónico';
+  emailLabel.classList = 'emailLabel';
+  article.appendChild(emailLabel);
 
-    buttonBack.textContent = 'Regresar';
-    buttonBack.classList = "buttonB";
+  inputEmail.classList = 'inputE';
+  article.appendChild(inputEmail);
 
-    title.textContent = "Registrate aquí!!"
-    footPage.textContent = "Octubre 2022,   github.com/LouArlo";
+  passLabel.textContent = 'Ingresa contraseña';
+  passLabel.classList = 'passLabel';
+  article.appendChild(passLabel);
 
-    logo.src = "logo.png";
-    /*img.classList="logoEnd";*/
+  inputPass.classList = 'inputP';
+  inputPass.type = 'password';
+  article.appendChild(inputPass);
 
-    footPage.classList = 'footP'
+  suguestPass.textContent = 'Ingresa una contraseña mínimo de 8 caracteres letras y números';
+  suguestPass.classList = 'suguestPass';
+  article.appendChild(suguestPass);
 
-        
-    buttonSend.addEventListener('click', () => {
-      //  createUserWithEmailAndPassword();
-      createUserWithEmailAndPassword(auth, inputEmail.value, inputPass.value)
-            .then((userCredential) => {
-                // Signed in
-                const user = userCredential.user;
-                // ...
-                onNavigate('/');
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                
-                alert("Correo electrónico o contraseña inválidos");
-            });
-          
-            
-    });        
+  buttonSend.textContent = 'Enviar';
+  buttonSend.classList = 'buttonS';
+  article.appendChild(buttonSend);
 
-   
-    buttonBack.addEventListener('click', () => {
+  messageError.classList = 'messageE';
+  article.appendChild(messageError);
+
+  buttonBack.textContent = 'Regresar';
+  buttonBack.classList = 'buttonB';
+  article.appendChild(buttonBack);
+
+  footPage.textContent = 'Octubre 2022,   github.com/LouArlo';
+  footPage.classList = 'footP';
+  footer.appendChild(footPage);
+
+  messageError.innerHTML = '';
+
+  buttonSend.addEventListener('click', () => {
+    //  createUserWithEmailAndPassword();
+
+    createUserWithEmailAndPassword(auth, inputEmail.value, inputPass.value)
+    // resgister (inputEmail.value, inputPass.value)
+
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+        // ...
         onNavigate('/');
-    });
+      })
+      .catch((error) => {
+        // console.log(error);
 
-    div.append(logo, title, inputEmail, emailLabel, inputPass, passLabel, suguestPass, buttonSend, buttonBack, footPage, messageError);
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        messageError.innerHTML = 'Correo electónico y/o contraseña incorrecto';
+        // alert("Correo electrónico o contraseña inválidos");
+      });
+  });
 
-    return div;
+  buttonBack.addEventListener('click', () => {
+    onNavigate('/');
+  });
+
+  main.append(header, article, footer);
+
+  return main;
 };
 
-/*import {createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js";
+/* import {createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js";
 
 createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in
     const user = userCredential.user;
     // ...
-  })                                            
+  })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
     // ..
-  });*/
+  }); */
