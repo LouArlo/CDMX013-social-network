@@ -1,8 +1,7 @@
 import { Welcome } from './components/Welcome.js';
 import { Login } from './components/Login.js';
 import { Register } from './components/Register.js';
-// import {auth} from './lib/auth.js';
-// console.log(auth);
+import { Pethouse } from './components/Pethouse.js';
 
 const root = document.getElementById('root');
 
@@ -10,6 +9,7 @@ const routes = {
   '/': Welcome,
   '/Login': Login,
   '/Register': Register,
+  '/Pethouse': Pethouse,
 };
 
 export const onNavigate = (pathname) => {
