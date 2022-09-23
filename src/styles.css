@@ -3,48 +3,54 @@
    main { display: block; }
   }*/
 
-   main {
-            display: grid; /*| inline-grid;*/
-   }
+main {
+    display: grid;
+    /*| inline-grid;*/
+}
 
-  
- main {
+
+main {
     grid-template-columns: [first] 20vw [line2] 80vw [end]20vw;
     /*grid-template-rows: [row1-start] 200px [row1-end] 400px [row2] 250px [third-line] 300px [last-line];*/
-    grid-template-rows: [row1-start] 15vh [row1-end] 60vh [row2] 15vh [third-line] 10vw [last-line];
-    background-image: url(start-Page2.png);
-    background-repeat: repeat;
-     }
+    grid-template-rows: [row1-start] 25vh [row1-end] 50vh [row2] 15vh [third-line] 10vw [last-line];
+    /* background-image: url(start-Page1.png);
+    background-size: cover;
+    background-repeat: no-repeat;*/
+    background-color: #1ABAC8;
+}
+
 header {
     grid-column: span 4;
     grid-row: span 1;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    align-items: center;
-}     
+    /* display: flex;
+    /* justify-content: space-around;
+    flex-direction: column;*/
+    /*  align-items: center;*/
+}
 
- article { 
-    grid-column: span 3;  
+article {
+    grid-column: span 3;
     grid-row: span 1;
-    display: flex;
-    justify-content: center;
+ /*   display: flex;
     flex-direction: column;
-   /* align-items: flex-start;*/
-    
-    }
- /*nav     { 
+    justify-content: space-between;
+    /* align-items: flex-start;*/
+
+}
+
+/*nav     { 
     grid-area: a; /* auto min-width 
     }*/
 
- aside   { 
-    grid-column: span 4;  
-    grid-row: span 1;
+aside {
+    grid-column: span 2;
+    /* grid-row: span 1;*/
     display: flex;
-    align-items: center; 
+    align-items: center;
     justify-content: center;
-    }
-    
+    align-content: center;
+}
+
 footer {
     grid-column: span 3;
     grid-row: span 4;
@@ -54,48 +60,93 @@ footer {
 
 h2 {
     width: 100%;
-    margin-top: 5px;
-    margin-left: 90px
-   /* position: absolute;
+    margin-top: 20px;
+    margin-left: 130px
+        /* position: absolute;
     top: 20px;
     left: 200px;*/
 }
 
-img {
-   
-    width: 55vw;
-    margin-top: 50px;
-  
+#temporal {
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 130px
+        /* position: absolute;
+    top: 20px;
+    left: 200px;*/
+}
+/*img {
+    /*size: auto;
+width: 35vw;
+margin-top: 5vh;
+
+}*/
+
+#animals {
+    position: absolute;
+    width: 63px;
+    height: 62px;
+    left: 92px;
+    top: 111px;
+
+    background: url(gato.png);
+    mix-blend-mode: hard-light;
+    backdrop-filter: blur(2px);
+}
+
+#marca {
+    position: absolute;
+    width: 190px;
+    height: 88px;
+    left: 155px;
+    top: 111px;
+
+    font-family: 'Kaushan Script';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 70px;
+
+    color: #0F0300;
 }
 
 .emailLabel {
-    margin-top: 30px;
+    margin-top: 10px;
     margin-left: 90px;
     /*top: 183px;
     left: 120px;
     /*position: absolute;*/
 }
 
+.loginLabel {
+    margin-top: 70px;
+    margin-left: 90px;
+    font-size: large;
+    /*top: 183px;
+    left: 120px;
+    /*position: absolute;*/
+}
+
 .passLabel {
-    margin-top: 30px;
+    margin-top: 15px;
     margin-left: 90px;
     /*position: absolute;
     margin-top: -60px;
     margin-left: 90px;*/
-    
-    
+
+
 }
 
 .suguestPass {
-   /* top: 360px;
+    /* top: 360px;
     left: 120px;*/
     position: absolute;
-    margin-top: 130px;
+    margin-top: 12px;
     margin-left: 90px;
     font-size: x-small;
 }
 
-.logoEnd {
+/*.logoEnd {
     padding: 20px;
     box-sizing: border-box;
     width: 90%;
@@ -103,33 +154,44 @@ img {
     position: relative;
     top: 300px;
     margin: 5px;
-}
+}*/
 
 .slogan {
-    
-    width: 90%;
+    /*margin-top: auto;*/
+    width: 80%;
     font-size: large;
     font-family: arial;
 
 }
 
+#legs {
+    margin-top: 100px;
+}
+
+.footP {
+    margin-top: 11px;
+    /*width: 90%;
+    font-size: large;
+    font-family: arial;*/
+
+}
 .buttonLogIn {
     /*grid-area: 2/2;*/
-    /*position: absolute;*/
+    position: absolute;
     width: 220px;
     height: 42px;
-   /* left: 160px;
+    /* left: 160px;
     top: 261px;*/
-    background-color: rgba(245, 170, 200, 0.5);
-    mix-blend-mode: darken;
-    border: 1px solid #F5AAC8;
-    border-radius: 10px;
-    margin-top: 50px;
+    background-color: #B5D9E0;
+    /* mix-blend-mode: darken;*/
+    border: 1px solid #579caa;
+    /*border-radius: 10px;*/
+    margin-top: 130px;
     margin-left: 90px;
 }
 
 .buttonLogIn:hover {
-    background-color: #d487a6;
+    background-color: #1d2d30;
 }
 
 .buttonGoogle {
@@ -137,48 +199,50 @@ img {
     /*position: absolute;*/
     width: 220px;
     height: 42px;
-   /* left: 160px;
+    /* left: 160px;
     top: 261px;*/
     /*background-color: rgba(245, 170, 200, 0.5);*/
     background-image: url(btn_google.png);
-    mix-blend-mode: darken;
-    border: 1px solid #F5AAC8;
+    background-size: cover;
+    /* background-repeat: no-repeat;
+   mix-blend-mode: darken;
+    border: 1px solid #F5AAC8;*/
     border-radius: 10px;
-    margin-top: 49px;
+    /* margin-top: 80px;*/
     margin-left: 90px;
 }
 
-/*.buttonGoogle:hover {
-    background-image: none;
-}*/
+.buttonGoogle:hover {
+    background-color:#579caa;
+}
 
 .buttonReg {
-   /* grid-area: 2/2;*/
+    /* grid-area: 2/2;*/
 
-   /* position: absolute;*/
+    position: absolute;
     width: 220px;
     height: 42px;
     /*left: 160px;
     top: 348px;*/
-    background-color: rgba(245, 170, 200, 0.5);
-    mix-blend-mode: darken;
-    border: 1px solid #F5AAC8;
-    border-radius: 10px;
-    margin-top: 50px;
+    background-color: #579caa;
+    /*   mix-blend-mode: darken;*/
+    border: 1px solid #579caa;
+    /* border-radius: 10px;*/
+    margin-top: 210px;
     margin-left: 90px;
-   
+
 }
 
 .buttonReg:hover {
-    background-color: #d487a6;
+    background-color: #1d2d30;
 }
 
 .buttonS {
-  /*  position: absolute;*/
+    /*  position: absolute;*/
     display: flex;
-    align-items: center; 
+    align-items: center;
     justify-content: center;
-   /* margin-top: 80px;*/
+    /* margin-top: 80px;*/
     margin-top: 100px;
     margin-left: 230px;
     width: 110px;
@@ -186,60 +250,69 @@ img {
     background-position: 50px 50px;
     /*left: 228px;
     top: 418px;*/
-    background-color: rgba(245, 170, 200, 0.5);
-    mix-blend-mode: darken;
-    border: 1px solid #F5AAC8;
-    border-radius: 10px;
+    background-color: #579caa;
+    /*  mix-blend-mode: darken;*/
+    border: 1px solid #1d2d30;
+     border-radius: 10px;
    /* z-index: 2;*/
 }
 
 .buttonS:hover {
-    background-color: #d487a6;
+    background-color: #1d2d30;
 }
 
 .buttonB {
-    /*position: absolute;*/
+    position: absolute;
     display: flex;
-    align-items: flex-end; 
+    align-items: flex-end;
     /*justify-content: center;
    /* margin-top: 80px;*/
-    background-image: url(/icon-back.png); /* 16px x 16px */
-    background-color: transparent; /* make the button transparent */
-    background-repeat: no-repeat;  /* make the background image appear only once */
+    background-image: url(/icon-back.png);
+    /* 16px x 16px */
+    background-color: transparent;
+    /* make the button transparent */
+    background-repeat: no-repeat;
+    /* make the background image appear only once */
     /*background-position: 7px 19px;  /* equivalent to 'top left' */
-    border: none;           /* assuming we don't want any borders */
-    cursor: pointer;        /* make the cursor like hovering over an <a> element */
-    height: 27px;           /* make this the size of your image */
-    padding-left: 30px;     /* make text start to the right of the image */
+    border: none;
+    /* assuming we don't want any borders */
+    cursor: pointer;
+    /* make the cursor like hovering over an <a> element */
+    height: 27px;
+    /* make this the size of your image */
+    padding-left: 30px;
+    /* make text start to the right of the image */
     /*vertical-align: middle;  /*align the text vertically centered */
     /*top:500px;
     left:60px;*/
+    margin-top: 15px;
 }
 
 .buttonE {
-    /*  position: absolute;*/
-     /* display: flex;
+    position: absolute;
+    /* display: flex;
       align-items: center; 
       justify-content: center;
      /* margin-top: 80px;*/
-      margin-top: 34px;
-      margin-left: 204px;
-      width: 110px;
-      height: 42px;
-      background-position: 50px 50px;
-      /*left: 228px;
+    margin-top: 65px;
+    margin-left: -112px;
+    width: 110px;
+    height: 42px;
+    background-position: 50px 50px;
+    /*left: 228px;
       top: 418px;*/
-      background-color: rgba(245, 170, 200, 0.5);
-      mix-blend-mode: darken;
-      border: 1px solid #F5AAC8;
-      border-radius: 10px;
-     /* z-index: 2;*/
-  }
-  
-  .buttonE:hover {
-      background-color: #d487a6;
-  }
-  
+    background-color:#B5D9E0;
+    /*mix-blend-mode: darken;*/
+    border: 1px solid #579caa;
+    border-radius: 10px;
+    /*border-radius: 10px;*/
+}
+
+
+.buttonE:hover {
+    background-color: #579caa;
+}
+
 
 .inputE {
     /*position: absolute;
@@ -250,7 +323,7 @@ img {
     width: 220px;
     height: 42px;
     background: #CDCDE0;
-    mix-blend-mode: luminosity;
+    /* mix-blend-mode: luminosity;*/
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
 }
@@ -258,29 +331,39 @@ img {
 
 
 .inputP {
-   /* position: absolute;*/
-   /* display: flex;
+    /* position: absolute;*/
+    /* display: flex;
     align-items: center; 
     justify-content: center;*/
     margin-left: 90px;
-   /* margin-top: 100px;*/
+    /* margin-top: 100px;*/
     width: 220px;
     height: 42px;
     mask-type: luminance;
-    background: #B5D9E0;
-    mix-blend-mode: luminosity;
+    background: #CDCDE0;
+    /*  mix-blend-mode: luminosity;*/
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
 }
 
-.messageE{
+.messageE {
     position: absolute;
-    margin-top: 170px;
+    margin-top: -97px;
     margin-left: 90px;
-    font-size: medium;
-    
-    color: red;
-    
+    font-size: x-large;
+
+    color: white;
+
+}
+
+#patitas {
+    position: absolute;
+    width: 414px;
+    height: 111px;
+    left: 0px;
+    top: 785px;
+
+    background: url(patitas-removebg-preview.png);
 }
 
 footer {
@@ -290,7 +373,7 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-   /* grid-area: 4/2/4/4;
+    /* grid-area: 4/2/4/4;
     margin-top: 50px;
     /*padding: 220px 0px;
     box-sizing: border-box;*/
@@ -304,11 +387,11 @@ footer {
 }
 
 @media screen and (max-width: 896px) {
-   /* body {
+    /* body {
         background: wheat;*/
-    }
+}
 
-  /*-  .content {
+/*-  .content {
         width: 85%;
     }
 

@@ -17,12 +17,19 @@ export const Register = () => {
   const suguestPass = document.createElement('p');
   const inputPass = document.createElement('input');
   const logo = document.createElement('img');
+  const marca = document.createElement('img');
+  const legsImg = document.createElement('img');
   const footer = document.createElement('footer');
-  const footPage = document.createElement('p');
+  // const footPage = document.createElement('p');
   const messageError = document.createElement('p');
 
-  logo.src = './logo.png';
+  logo.src = './catDog.png';
+  logo.id = 'animals';
   header.appendChild(logo);
+
+  marca.src = './mascota.png';
+  marca.id = 'marca';
+  header.appendChild(marca);
 
   title2.textContent = 'Registrate aquí!!';
   article.appendChild(title2);
@@ -42,7 +49,7 @@ export const Register = () => {
   inputPass.type = 'password';
   article.appendChild(inputPass);
 
-  suguestPass.textContent = 'Ingresa una contraseña mínimo de 8 caracteres letras y números';
+  suguestPass.textContent = 'Ingresa una contraseña mínimo de 6 caracteres letras y números';
   suguestPass.classList = 'suguestPass';
   article.appendChild(suguestPass);
 
@@ -57,9 +64,9 @@ export const Register = () => {
   buttonBack.classList = 'buttonB';
   article.appendChild(buttonBack);
 
-  footPage.textContent = 'Octubre 2022,   github.com/LouArlo';
-  footPage.classList = 'footP';
-  footer.appendChild(footPage);
+  legsImg.src = './patitas.png';
+  legsImg.id = 'legs';
+  footer.appendChild(legsImg);
 
   messageError.innerHTML = '';
 
@@ -73,14 +80,14 @@ export const Register = () => {
         // Signed in
         const user = userCredential.user;
         console.log(user);
+        messageError.innerHTML = 'Creación de cuenta Exitosa';
         // ...
         onNavigate('/');
       })
       .catch((error) => {
         // console.log(error);
-
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        // const errorCode = error.code;
+        // const errorMessage = error.message;
         messageError.innerHTML = 'Correo electónico y/o contraseña incorrecto';
         // alert("Correo electrónico o contraseña inválidos");
       });
