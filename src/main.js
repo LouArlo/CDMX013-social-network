@@ -1,7 +1,11 @@
+/* eslint-disable import/no-unresolved */
+import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { Welcome } from './components/Welcome.js';
 import { Login } from './components/Login.js';
 import { Register } from './components/Register.js';
 import { Pethouse } from './components/Pethouse.js';
+
+const auth = getAuth();
 
 const root = document.getElementById('root');
 
@@ -30,6 +34,14 @@ window.onpopstate = () => {
 
   root.append(component());
 };
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    onNavigate('/Pethouse');
+  } else {
+    onNavigate('/');
+  }
+});
 
 root.appendChild(component());
 

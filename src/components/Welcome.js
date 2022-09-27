@@ -1,11 +1,9 @@
 import { onNavigate } from '../main.js';
 
 export const Welcome = () => {
-  const main = document.createElement('main');
+  const body = document.createElement('body');
   const header = document.createElement('header');
-  const article = document.createElement('article');
-  // const nav = document.createElement('nav');
-  //const aside = document.createElement('aside');
+  const section = document.createElement('section');
   const slogan = document.createElement('p');
   const buttonLogin = document.createElement('button');
   const buttonRegister = document.createElement('button');
@@ -15,27 +13,33 @@ export const Welcome = () => {
   const footer = document.createElement('footer');
   const footPage = document.createElement('p');
 
-  logo.src = './catDog.png';
+  header.classList = 'headerWelcome';
+
+  logo.src = './images/catDog.png';
   logo.id = 'animals';
   header.appendChild(logo);
 
-  marca.src = './mascota.png';
+  marca.src = './images/mascota.png';
   marca.id = 'marca';
   header.appendChild(marca);
 
-  buttonLogin.textContent = 'Inicia Sesión';
-  buttonLogin.classList = 'buttonLogIn';
-  article.appendChild(buttonLogin);
-
-  buttonRegister.textContent = 'Registrate';
-  buttonRegister.classList = 'buttonReg';
-  article.appendChild(buttonRegister);
+  section.classList = 'sectionWelcome';
 
   slogan.textContent = 'Conecta (a nombre de tu mascota) y comparte cuidados, tips, educación, recreación, alimentación, entrenamiento, videos, fotos y mucho más';
   slogan.classList = 'slogan';
-  article.appendChild(slogan);
+  section.appendChild(slogan);
 
-  legsImg.src = './patitas.png';
+  buttonLogin.textContent = 'Inicia Sesión';
+  buttonLogin.classList = 'buttonLogIn';
+  section.appendChild(buttonLogin);
+
+  buttonRegister.textContent = 'Registrate';
+  buttonRegister.classList = 'buttonReg';
+  section.appendChild(buttonRegister);
+
+  footer.classList = 'footerWelcome';
+
+  legsImg.src = './images/patitas.png';
   legsImg.id = 'legs';
   footer.appendChild(legsImg);
 
@@ -51,6 +55,6 @@ export const Welcome = () => {
   });
 
   // div.append(title, buttonLogin, buttonRegister);
-  main.append(header, article, footer);
-  return main;
+  body.append(header, section, footer);
+  return body;
 };

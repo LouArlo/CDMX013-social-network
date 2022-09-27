@@ -1,193 +1,106 @@
-/*@media all and (max-width: 360px) {
-    /* Too narrow to support three columns 
-   main { display: block; }
-  }*/
 
-main {
+body { 
+    margin: 0;
+    padding: 0;
     display: grid;
-    /*| inline-grid;*/
-}
-
-
-main {
-    grid-template-columns: [first] 20vw [line2] 80vw [end]20vw;
-    /*grid-template-rows: [row1-start] 200px [row1-end] 400px [row2] 250px [third-line] 300px [last-line];*/
-    grid-template-rows: [row1-start] 25vh [row1-end] 50vh [row2] 15vh [third-line] 10vw [last-line];
-    /* background-image: url(start-Page1.png);
-    background-size: cover;
-    background-repeat: no-repeat;*/
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(8, 1fr);
     background-color: #1ABAC8;
+    width: 100vw;
+    height: 100vh;
 }
 
-header {
+.headerWelcome, .headerLogin, .headerRegister {
     grid-column: span 4;
-    grid-row: span 1;
-    /* display: flex;
-    /* justify-content: space-around;
-    flex-direction: column;*/
-    /*  align-items: center;*/
-}
-
-article {
-    grid-column: span 3;
-    grid-row: span 1;
- /*   display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    /* align-items: flex-start;*/
-
-}
-
-/*nav     { 
-    grid-area: a; /* auto min-width 
-    }*/
-
-aside {
-    grid-column: span 2;
-    /* grid-row: span 1;*/
+    grid-row: span 2;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
+}
+
+.headerPetHouse{
+    grid-column: span 4;
+    grid-row: span 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+nav {
+    grid-column: span 4;
+    grid-row: span 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+}
+.sectionWelcome, .sectionLogin, .sectionRegister {
+    grid-column: span 4;
+    grid-row: span 4;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     align-content: center;
 }
 
-footer {
-    grid-column: span 3;
-    grid-row: span 4;
+.sectionPetHouse {
+    background-color: #E8DBCF;
+    grid-column: span 4;
+    grid-row: span 5;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    align-content: center;
 }
 
-h2 {
-    width: 100%;
-    margin-top: 20px;
-    margin-left: 130px
-        /* position: absolute;
-    top: 20px;
-    left: 200px;*/
-}
-
-#temporal {
-    width: 100%;
-    margin-top: 20px;
-    margin-left: 130px
-        /* position: absolute;
-    top: 20px;
-    left: 200px;*/
-}
-/*img {
-    /*size: auto;
-width: 35vw;
-margin-top: 5vh;
-
-}*/
-
-#animals {
-    position: absolute;
-    width: 63px;
-    height: 62px;
-    left: 92px;
-    top: 111px;
-
-    background: url(gato.png);
-    mix-blend-mode: hard-light;
-    backdrop-filter: blur(2px);
-}
-
-#marca {
-    position: absolute;
-    width: 190px;
-    height: 88px;
-    left: 155px;
-    top: 111px;
-
-    font-family: 'Kaushan Script';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 48px;
-    line-height: 70px;
-
-    color: #0F0300;
+.footerWelcome, .footerLogin, .footerRegister, .footerPetHouse {
+    grid-column: span 4;
+    grid-row: span 2;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
 }
 
 .emailLabel {
-    margin-top: 10px;
-    margin-left: 90px;
-    /*top: 183px;
-    left: 120px;
-    /*position: absolute;*/
-}
+    margin-top: 11px;
+    margin-left: -53px;
+ }
 
 .loginLabel {
-    margin-top: 70px;
-    margin-left: 90px;
     font-size: large;
-    /*top: 183px;
-    left: 120px;
-    /*position: absolute;*/
 }
 
 .passLabel {
-    margin-top: 15px;
-    margin-left: 90px;
-    /*position: absolute;
-    margin-top: -60px;
-    margin-left: 90px;*/
-
-
+    margin-top: 11px;
+    margin-left: -108px;
 }
 
 .suguestPass {
-    /* top: 360px;
-    left: 120px;*/
-    position: absolute;
-    margin-top: 12px;
-    margin-left: 90px;
+    margin-top: 9px;
+    margin-left: 37px;
     font-size: x-small;
 }
 
-/*.logoEnd {
-    padding: 20px;
-    box-sizing: border-box;
-    width: 90%;
-    height: auto;
-    position: relative;
-    top: 300px;
-    margin: 5px;
-}*/
 
 .slogan {
-    /*margin-top: auto;*/
-    width: 80%;
+    width: 95vw;
     font-size: large;
     font-family: arial;
-
-}
-
-#legs {
-    margin-top: 100px;
+    text-align: center;
 }
 
 .footP {
     margin-top: 11px;
-    /*width: 90%;
-    font-size: large;
-    font-family: arial;*/
-
-}
+ }
 .buttonLogIn {
-    /*grid-area: 2/2;*/
-    position: absolute;
     width: 220px;
     height: 42px;
-    /* left: 160px;
-    top: 261px;*/
     background-color: #B5D9E0;
-    /* mix-blend-mode: darken;*/
     border: 1px solid #579caa;
-    /*border-radius: 10px;*/
-    margin-top: 130px;
-    margin-left: 90px;
+    border-radius: 10px;
+    margin-top: 42px;
 }
 
 .buttonLogIn:hover {
@@ -195,42 +108,37 @@ margin-top: 5vh;
 }
 
 .buttonGoogle {
-    /*grid-area: 2/2;*/
-    /*position: absolute;*/
     width: 220px;
     height: 42px;
-    /* left: 160px;
-    top: 261px;*/
-    /*background-color: rgba(245, 170, 200, 0.5);*/
-    background-image: url(btn_google.png);
+    background-image: url(/images/btn_google.png);
     background-size: cover;
-    /* background-repeat: no-repeat;
-   mix-blend-mode: darken;
-    border: 1px solid #F5AAC8;*/
     border-radius: 10px;
-    /* margin-top: 80px;*/
-    margin-left: 90px;
 }
 
 .buttonGoogle:hover {
     background-color:#579caa;
 }
 
-.buttonReg {
-    /* grid-area: 2/2;*/
+.buttonLogout {
+    width: 14px;
+    height: 14px;
+    background-image: url(/images/logout-button.png);
+    background-size: cover;
+    border-radius: 32px;
+}
 
-    position: absolute;
+.buttonLogout:hover {
+    background-color:#579caa;
+}
+
+.buttonReg {
     width: 220px;
     height: 42px;
-    /*left: 160px;
-    top: 348px;*/
     background-color: #579caa;
-    /*   mix-blend-mode: darken;*/
+    /* mix-blend-mode: darken; */
     border: 1px solid #579caa;
-    /* border-radius: 10px;*/
-    margin-top: 210px;
-    margin-left: 90px;
-
+    border-radius: 10px;
+    margin-top: 41px;
 }
 
 .buttonReg:hover {
@@ -238,74 +146,52 @@ margin-top: 5vh;
 }
 
 .buttonS {
-    /*  position: absolute;*/
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* margin-top: 80px;*/
-    margin-top: 100px;
-    margin-left: 230px;
+    margin-top: 9px;
     width: 110px;
     height: 42px;
     background-position: 50px 50px;
-    /*left: 228px;
-    top: 418px;*/
     background-color: #579caa;
-    /*  mix-blend-mode: darken;*/
-    border: 1px solid #1d2d30;
-     border-radius: 10px;
-   /* z-index: 2;*/
-}
+    border: 1px solid #B5D9E0;
+    border-radius: 10px;
+ }
 
 .buttonS:hover {
     background-color: #1d2d30;
 }
 
 .buttonB {
-    position: absolute;
-    display: flex;
-    align-items: flex-end;
-    /*justify-content: center;
-   /* margin-top: 80px;*/
-    background-image: url(/icon-back.png);
-    /* 16px x 16px */
+    margin-left: -50vw;
+    background-image: url(/images/icon-back.png);
     background-color: transparent;
-    /* make the button transparent */
     background-repeat: no-repeat;
-    /* make the background image appear only once */
-    /*background-position: 7px 19px;  /* equivalent to 'top left' */
     border: none;
-    /* assuming we don't want any borders */
     cursor: pointer;
-    /* make the cursor like hovering over an <a> element */
     height: 27px;
-    /* make this the size of your image */
-    padding-left: 30px;
-    /* make text start to the right of the image */
-    /*vertical-align: middle;  /*align the text vertically centered */
-    /*top:500px;
-    left:60px;*/
-    margin-top: 15px;
+    padding-left: 23px;
+    z-index: 2;
+}
+
+.buttonBackRegister {
+    margin-top: 32vh;
+    margin-left: -50vw;
+    background-image: url(/images/icon-back.png);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    height: 27px;
+    padding-left: 23px;
+    z-index: 2;
 }
 
 .buttonE {
-    position: absolute;
-    /* display: flex;
-      align-items: center; 
-      justify-content: center;
-     /* margin-top: 80px;*/
-    margin-top: 65px;
-    margin-left: -112px;
+    margin-top: 9px;
     width: 110px;
     height: 42px;
     background-position: 50px 50px;
-    /*left: 228px;
-      top: 418px;*/
-    background-color:#B5D9E0;
-    /*mix-blend-mode: darken;*/
+    background-color: #B5D9E0;
     border: 1px solid #579caa;
     border-radius: 10px;
-    /*border-radius: 10px;*/
 }
 
 
@@ -315,45 +201,34 @@ margin-top: 5vh;
 
 
 .inputE {
-    /*position: absolute;
-    display: flex;
-    align-items: center; 
-    justify-content: center;*/
-    margin-left: 90px;
     width: 220px;
     height: 42px;
     background: #CDCDE0;
-    /* mix-blend-mode: luminosity;*/
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0px 4px 4px rgb(0 0 0 / 25%);
     border-radius: 10px;
 }
 
 
 
 .inputP {
-    /* position: absolute;*/
-    /* display: flex;
-    align-items: center; 
-    justify-content: center;*/
-    margin-left: 90px;
-    /* margin-top: 100px;*/
     width: 220px;
     height: 42px;
     mask-type: luminance;
     background: #CDCDE0;
-    /*  mix-blend-mode: luminosity;*/
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0px 4px 4px rgb(0 0 0 / 25%);
     border-radius: 10px;
 }
 
 .messageE {
-    position: absolute;
-    margin-top: -97px;
-    margin-left: 90px;
+    margin-top: -373px;
     font-size: x-large;
-
     color: white;
+}
 
+.messageErrorRegister {
+    margin-top: -284px;
+    font-size: x-large;
+    color: white;
 }
 
 #patitas {
@@ -362,45 +237,18 @@ margin-top: 5vh;
     height: 111px;
     left: 0px;
     top: 785px;
-
-    background: url(patitas-removebg-preview.png);
+    background: url(/images/patitas.png);
 }
 
-footer {
-    grid-column: span 2;
-    grid-row: span 4;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* grid-area: 4/2/4/4;
-    margin-top: 50px;
-    /*padding: 220px 0px;
-    box-sizing: border-box;*/
-    width: 100%;
-    /*top: 190px;
-    /*position: relative;
-    display: inline-block;*/
-    /*font-size: xx-small;
-    justify-self: center;*/
-
+#profile {
+    border: #0f0300;
+    background: white;
+    width: auto;
+    border-radius: 241px;
 }
 
-@media screen and (max-width: 896px) {
-    /* body {
-        background: wheat;*/
-}
 
-/*-  .content {
-        width: 85%;
-    }
-
-    .slogan {
-        width: 100%;
-    }
-}*/
-
-@media screen and (max-width: 414px) {
+/*@media screen and (max-width: 414px) {
     main {
         width: 100%;
     }
@@ -408,4 +256,4 @@ footer {
     .slogan {
         display: 60%;
     }
-}
+}*/
