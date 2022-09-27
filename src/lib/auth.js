@@ -8,7 +8,8 @@ import { app } from './firebase.js';
 // Initialize Firebase Authentication and get a reference to the service
 export const auth = getAuth(app);
 export const authGoogle = new GoogleAuthProvider(app);
-
+// export const logout = signOut(app);
+// export const authEmailandPass = signInWithEmailAndPassword(app);
 /* export const resgister = (email, password) => {
     createUserWithEmailAndPassword(auth, email, password);
 } */

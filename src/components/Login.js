@@ -1,14 +1,12 @@
 // eslint-disable-next-line import/no-unresolved
-import { signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
-
-// import { registerGoogle } from "../lib/auth.js";
+import { signInWithPopup, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { onNavigate } from '../main.js';
 import { auth, authGoogle } from '../lib/auth.js';
 
 export const Login = () => {
-  const main = document.createElement('main');
+  const body = document.createElement('body');
   const header = document.createElement('header');
-  const article = document.createElement('article');
+  const section = document.createElement('section');
   const title2 = document.createElement('h2');
   const buttonLogIn = document.createElement('button');
   const buttonLogInGoogle = document.createElement('button');
@@ -22,62 +20,67 @@ export const Login = () => {
   const marca = document.createElement('img');
   const legsImg = document.createElement('img');
   const footer = document.createElement('footer');
-  // const footPage = document.createElement('p');
   const messageError = document.createElement('p');
 
-  logo.src = './catDog.png';
+  header.classList = 'headerLogin';
+
+  logo.src = './images/catDog.png';
   logo.id = 'animals';
   header.appendChild(logo);
 
-  marca.src = './mascota.png';
+  marca.src = './images/mascota.png';
   marca.id = 'marca';
   header.appendChild(marca);
 
+  section.classList = 'sectionLogin';
+
   title2.textContent = 'Inicia Sesión';
-  article.appendChild(title2);
+  title2.classList = 'h2Login';
+  section.appendChild(title2);
 
   emailLabel.textContent = 'Ingresa correo electrónico';
   emailLabel.classList = 'emailLabel';
-  article.appendChild(emailLabel);
+  section.appendChild(emailLabel);
 
   inputEmail.classList = 'inputE';
-  article.appendChild(inputEmail);
+  section.appendChild(inputEmail);
 
   passLabel.textContent = 'Ingresa contraseña';
   passLabel.classList = 'passLabel';
-  article.appendChild(passLabel);
+  section.appendChild(passLabel);
 
   inputPass.classList = 'inputP';
   inputPass.type = 'password';
-  article.appendChild(inputPass);
+  section.appendChild(inputPass);
 
   buttonLogIn.textContent = 'Entrar';
   buttonLogIn.classList = 'buttonE';
-  article.appendChild(buttonLogIn);
+  section.appendChild(buttonLogIn);
 
   loginLabel.textContent = 'o Ingresa con.....';
   loginLabel.classList = 'loginLabel';
-  article.appendChild(loginLabel);
+  section.appendChild(loginLabel);
 
   buttonLogInGoogle.classList = 'buttonGoogle';
-  article.appendChild(buttonLogInGoogle);
+  section.appendChild(buttonLogInGoogle);
 
   buttonBack.textContent = 'Regresar';
   buttonBack.classList = 'buttonB';
-  article.appendChild(buttonBack);
+  section.appendChild(buttonBack);
 
   messageError.classList = 'messageE';
-  article.appendChild(messageError);
+  section.appendChild(messageError);
 
-  legsImg.src = './patitas.png';
+  footer.classList = 'footerLogin';
+
+  legsImg.src = './images/patitas.png';
   legsImg.id = 'legs';
   footer.appendChild(legsImg);
 
   buttonLogIn.addEventListener('click', () => {
-    // Log In with google
-    signInWithPopup(auth, inputEmail.value, inputPass.value)
+    // Log In with Email and Password
+    signInWithEmailAndPassword(auth, inputEmail.value, inputPass.value)
       .then(() => {
-        onNavigate('/petHouse');
         // console.log('entro');
         // This gives you a Google Access Token. You can use it to access the Google API.
       //  const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -85,25 +88,25 @@ export const Login = () => {
         // The signed-in user info.
       //  const user = result.user;
         // ...
-      }).catch((error) => {
+      }).catch(() => {
         // console.error(err.message);
         // Handle Errors here.
-      //  const errorCode = error.code;
+        // const errorCode = error.code;
         //    const errorMessage = error.message;
         // The email of the user's account used.
         //   const email = error.customData.email;
         // The AuthCredential type that was used.
-      //  const credential = GoogleAuthProvider.credentialFromError(error);
-      //  messageError.innerHTML = "errorMessage";
+        //  const credential = GoogleAuthProvider.credentialFromError(error);
+
+        messageError.innerHTML = 'Verificar correo o contraseña';
         // ...
+        //     });
       });
   });
-
   buttonLogInGoogle.addEventListener('click', () => {
     // Log In with google
     signInWithPopup(auth, authGoogle)
       .then(() => {
-        onNavigate('/Pethouse');
         // This gives you a Google Access Token. You can use it to access the Google API.
       //  const credential = GoogleAuthProvider.credentialFromResult(result);
         //   const token = credential.accessToken;
@@ -127,7 +130,7 @@ export const Login = () => {
     onNavigate('/');
   });
 
-  main.append(header, article, footer);
+  body.append(header, section, footer);
 
-  return main;
+  return body;
 };

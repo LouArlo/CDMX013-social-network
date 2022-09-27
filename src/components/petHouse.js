@@ -1,46 +1,66 @@
-import { onNavigate } from '../main.js';
-// import { auth, authGoogle } from '../lib/auth.js';
+// import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
+import { auth } from '../lib/auth.js';
+// import { logout } from '../lib/auth.js';
 
 export const Pethouse = () => {
-  const main = document.createElement('main');
+  const body = document.createElement('body');
   const header = document.createElement('header');
-  const article = document.createElement('article');
+  const nav = document.createElement('nav');
+  const profile = document.createElement('img');
+  const buttonLogout = document.createElement('button');
+  const section = document.createElement('section');
   const title2 = document.createElement('h2');
-  const buttonBack = document.createElement('button');
   const postFirst = document.createElement('img');
   const logo = document.createElement('img');
   const marca = document.createElement('img');
   const legsImg = document.createElement('img');
   const footer = document.createElement('footer');
-  // const footPage = document.createElement('p');
-  logo.src = './catDog.png';
+
+  header.classList = 'headerPetHouse';
+
+  logo.src = './images/catDog.png';
   logo.id = 'animals';
   header.appendChild(logo);
 
-  marca.src = './mascota.png';
+  marca.src = './images/mascota.png';
   marca.id = 'marca';
   header.appendChild(marca);
 
+  nav.classList = 'navPetHouse';
+
+  profile.src = './images/profile.png';
+  profile.id = 'profile';
+  nav.appendChild(profile);
+
+  buttonLogout.classList = 'buttonLogout';
+  nav.appendChild(buttonLogout);
+
+  section.classList = 'sectionPetHouse';
+
   title2.textContent = 'Página en construcción';
   title2.id = 'temporal';
-  article.appendChild(title2);
+  section.appendChild(title2);
 
-  postFirst.src = './post-inicial.png';
-  article.appendChild(postFirst);
+  postFirst.src = './images/post-inicial.png';
+  section.appendChild(postFirst);
 
-  buttonBack.textContent = 'Regresar';
-  buttonBack.classList = 'buttonB';
-  article.appendChild(buttonBack);
+  footer.classList = 'footerRegister';
 
-  legsImg.src = './patitas.png';
+  legsImg.src = './images/patitas.png';
   legsImg.id = 'legs';
   footer.appendChild(legsImg);
 
-  buttonBack.addEventListener('click', () => {
-    onNavigate('/');
+  buttonLogout.addEventListener('click', () => {
+    auth.signOut()
+      .then(() => {
+        console.log('saliste de sesión');
+      })
+      .catch(() => {
+
+      });
   });
 
-  main.append(header, article, footer);
+  body.append(header, nav, section, footer);
 
-  return main;
+  return body;
 };
