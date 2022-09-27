@@ -2,12 +2,11 @@
 import { createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { onNavigate } from '../main.js';
 import { auth } from '../lib/auth.js';
-// import { resgister } from "../lib/auth.js";
 
 export const Register = () => {
-  const main = document.createElement('main');
+  const body = document.createElement('body');
   const header = document.createElement('header');
-  const article = document.createElement('article');
+  const section = document.createElement('section');
   const title2 = document.createElement('h2');
   const buttonSend = document.createElement('button');
   const buttonBack = document.createElement('button');
@@ -20,51 +19,56 @@ export const Register = () => {
   const marca = document.createElement('img');
   const legsImg = document.createElement('img');
   const footer = document.createElement('footer');
-  // const footPage = document.createElement('p');
   const messageError = document.createElement('p');
 
-  logo.src = './catDog.png';
+  header.classList = 'headerRegister';
+
+  logo.src = './images/catDog.png';
   logo.id = 'animals';
   header.appendChild(logo);
 
-  marca.src = './mascota.png';
+  marca.src = './images/mascota.png';
   marca.id = 'marca';
   header.appendChild(marca);
 
+  section.classList = 'sectionRegister';
+
   title2.textContent = 'Registrate aquí!!';
-  article.appendChild(title2);
+  section.appendChild(title2);
 
   emailLabel.textContent = 'Ingresa correo electrónico';
   emailLabel.classList = 'emailLabel';
-  article.appendChild(emailLabel);
+  section.appendChild(emailLabel);
 
   inputEmail.classList = 'inputE';
-  article.appendChild(inputEmail);
+  section.appendChild(inputEmail);
 
   passLabel.textContent = 'Ingresa contraseña';
   passLabel.classList = 'passLabel';
-  article.appendChild(passLabel);
+  section.appendChild(passLabel);
 
   inputPass.classList = 'inputP';
   inputPass.type = 'password';
-  article.appendChild(inputPass);
+  section.appendChild(inputPass);
 
   suguestPass.textContent = 'Ingresa una contraseña mínimo de 6 caracteres letras y números';
   suguestPass.classList = 'suguestPass';
-  article.appendChild(suguestPass);
+  section.appendChild(suguestPass);
 
   buttonSend.textContent = 'Enviar';
   buttonSend.classList = 'buttonS';
-  article.appendChild(buttonSend);
+  section.appendChild(buttonSend);
 
-  messageError.classList = 'messageE';
-  article.appendChild(messageError);
+  messageError.classList = 'messageErrorRegister';
+  section.appendChild(messageError);
 
   buttonBack.textContent = 'Regresar';
-  buttonBack.classList = 'buttonB';
-  article.appendChild(buttonBack);
+  buttonBack.classList = 'buttonBackRegister';
+  section.appendChild(buttonBack);
 
-  legsImg.src = './patitas.png';
+  footer.classList = 'footerRegister';
+
+  legsImg.src = './images/patitas.png';
   legsImg.id = 'legs';
   footer.appendChild(legsImg);
 
@@ -79,17 +83,16 @@ export const Register = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log(user);
+        // console.log('usuario  ', user);
         messageError.innerHTML = 'Creación de cuenta Exitosa';
-        // ...
-        onNavigate('/');
       })
       .catch((error) => {
         // console.log(error);
-        // const errorCode = error.code;
-        // const errorMessage = error.message;
+        const errorCode = error.code;
+
+        messageError.innerHTML = errorCode;
         messageError.innerHTML = 'Correo electónico y/o contraseña incorrecto';
-        // alert("Correo electrónico o contraseña inválidos");
+        // alert('Correo electrónico o contraseña inválidos');
       });
   });
 
@@ -97,21 +100,7 @@ export const Register = () => {
     onNavigate('/');
   });
 
-  main.append(header, article, footer);
+  body.append(header, section, footer);
 
-  return main;
+  return body;
 };
-
-/* import {createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js";
-
-createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in
-    const user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-  }); */
