@@ -1,5 +1,4 @@
-
-body { 
+body {
     margin: 0;
     padding: 0;
     display: grid;
@@ -10,7 +9,9 @@ body {
     height: 100vh;
 }
 
-.headerWelcome, .headerLogin, .headerRegister {
+.headerWelcome,
+.headerLogin,
+.headerRegister {
     grid-column: span 4;
     grid-row: span 2;
     display: flex;
@@ -19,34 +20,28 @@ body {
     justify-content: center;
 }
 
-.headerPetHouse{
-    grid-column: span 4;
+.headerPetHouse {
+    grid-column-start: span 3;
     grid-row: span 1;
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-nav {
-    grid-column: span 4;
+.navPetHouse {
+    grid-column-end: span 1;
     grid-row: span 1;
     display: flex;
+    /* margin-left: 83vw; */
+    /* margin-top: -22vh; */
     flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    flex-wrap: nowrap;
-}
-.sectionWelcome, .sectionLogin, .sectionRegister {
-    grid-column: span 4;
-    grid-row: span 4;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    align-content: center;
+    justify-content: center;
+    align-items: flex-end;
 }
 
-.sectionPetHouse {
-    background-color: #E8DBCF;
+.sectionWelcome,
+.sectionLogin,
+.sectionRegister {
     grid-column: span 4;
     grid-row: span 5;
     display: flex;
@@ -55,9 +50,60 @@ nav {
     align-content: center;
 }
 
-.footerWelcome, .footerLogin, .footerRegister, .footerPetHouse {
+.sectionPetHouse {
+    background-color: #E8DBCF;
+    /* background-image: url(./images/post-inicial.png); */
+    /* background-position: center; */
+    /* background-size: contain; */
     grid-column: span 4;
-    grid-row: span 2;
+    grid-row: span 7;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-content: space-around; */
+    /* flex-wrap: nowrap; */
+    /* justify-content: flex-start; */
+    /* align-items: center;*/
+}
+
+#postform {
+    display: flex;
+    grid-column: span 4;
+    grid-row: span 1;
+    align-items: center;
+    flex-direction: column;
+}
+
+.mainPetHouse {
+    display: flex;
+    grid-columns: span 4;
+    grid-row: span 6;
+    align-items: center;
+    flex-direction: column;
+}
+
+.scroll {
+    width: 59vw;
+    height: 63vh;
+    /*overflow-y: scroll;*/
+}
+
+/*#postFirst {
+    width: 100vw;
+    height: 50vh;
+}*/
+
+#post {
+    width: 307px;
+    height: 188px;
+
+}
+
+.footerWelcome,
+.footerLogin,
+.footerRegister,
+.footerPetHouse {
+    grid-column: span 4;
+    grid-row: span 1;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
@@ -66,7 +112,7 @@ nav {
 .emailLabel {
     margin-top: 11px;
     margin-left: -53px;
- }
+}
 
 .loginLabel {
     font-size: large;
@@ -93,7 +139,8 @@ nav {
 
 .footP {
     margin-top: 11px;
- }
+}
+
 .buttonLogIn {
     width: 220px;
     height: 42px;
@@ -116,7 +163,7 @@ nav {
 }
 
 .buttonGoogle:hover {
-    background-color:#579caa;
+    background-color: #579caa;
 }
 
 .buttonLogout {
@@ -128,7 +175,7 @@ nav {
 }
 
 .buttonLogout:hover {
-    background-color:#579caa;
+    background-color: #579caa;
 }
 
 .buttonReg {
@@ -153,7 +200,7 @@ nav {
     background-color: #579caa;
     border: 1px solid #B5D9E0;
     border-radius: 10px;
- }
+}
 
 .buttonS:hover {
     background-color: #1d2d30;
@@ -241,11 +288,114 @@ nav {
 }
 
 #profile {
+    margin-top: 1vh;
     border: #0f0300;
     background: white;
     width: auto;
     border-radius: 241px;
 }
+
+#profilePost {
+    margin: 1vh;
+    border: #0f0300;
+    background: white;
+    width: 16%;
+    border-radius: 241px;
+}
+
+.profileContent {
+    width: 306px;
+    height: 59px;
+    background: #D6CBAF;
+    margin: 1px;
+}
+
+.postControls {
+    width: 306px;
+    height: 36px;
+    background: #D6CBAF;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.textPost {
+    width: 306px;
+    height: 90px;
+    background: #D6CBAF;
+    margin: 1px;
+}
+
+.inputPostMessage {
+    margin: 3px;
+    width: 360px;
+   
+    background: #D6CBAF;
+    
+    border-radius: 10px;
+} 
+
+.buttonDelete {
+    width: 6vw;
+    height: 4vh;
+    /* border-radius: 10px; */
+    background-image: url(./images/trash.png);
+   /* background-repeat: no-repeat;*/
+    background-size: cover;
+    border: none;
+    margin: 3px;
+}
+.buttonDelete:hover {
+    background-color: #579caa;
+}
+
+.buttonEdition {
+    width: 6vw;
+    height: 4vh;
+    /* margin-left: 192px; */
+    /* width: 111px; */
+    /* height: 36px; */
+    border-radius: 10px;
+    background-image: url(./images/edition.png);
+   /* background-repeat: no-repeat;*/
+    background-size: cover;
+    border: none;
+    margin: 3px;
+}
+.buttonEdition:hover {
+    background-color: #579caa;
+}
+.buttonLike {
+    width: 6vw;
+    height: 4vh;
+    /* margin-left: 192px; */
+    /* width: 111px; */
+    /* height: 36px; */
+    border-radius: 10px;
+    background-image: url(./images/like.png);
+   /* background-repeat: no-repeat;*/
+    background-size: cover;
+    border: none;
+    margin: 3px;
+}
+.buttonLike:hover {
+    background-color: #579caa;
+}
+
+.buttonSave:hover {
+    background-color: #1d2d30;
+}
+
+.line {
+    width: 414vw;
+    height: 12px;
+    top: 155px;
+    background: #CFB9A0;
+}
+/*.inputPostTitle {
+   //placeholder: "Como te sientes hoy?" ;
+}*/
 
 
 /*@media screen and (max-width: 414px) {
