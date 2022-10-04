@@ -101,6 +101,5 @@ export const Register = () => {
   });
 
   body.append(header, section, footer);
-
   return body;
 };

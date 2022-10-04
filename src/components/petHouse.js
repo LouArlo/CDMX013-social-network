@@ -1,31 +1,38 @@
 import { auth } from '../lib/auth.js';
-import { createPost, onGetPost } from '../lib/firestore.js';
+import {
+  createPost, onGetPost, deletePost, onGetOnePost, updatePost,
+} from '../lib/firestore.js';
 
 export const Pethouse = () => {
   const body = document.createElement('body');
   const header = document.createElement('header');
   const nav = document.createElement('nav');
   const profile = document.createElement('img');
+  const profileEmailSingin = document.createElement('p');
   const buttonLogout = document.createElement('button');
   const section = document.createElement('section');
   const postform = document.createElement('form');
   const inputPost = document.createElement('textarea');
-  const buttonSubmitPost = document.createElement('button');
+  const buttonSubmitPost = document.createElement('img');
   const line = document.createElement('div');
   const main = document.createElement('main');
   const edition = document.createElement('figure');
   const post = document.createElement('div');
   const postProfile = document.createElement('div');
   const profilePost = document.createElement('img');
+  const profileEmailPost = document.createElement('h3');
   const postText = document.createElement('div');
   const postControls = document.createElement('div');
-  const buttonEdition = document.createElement('button');
-  const buttonDelete = document.createElement('button');
-  const buttonLike = document.createElement('button');
+  const buttonEdition = document.createElement('img');
+  const buttonDelete = document.createElement('img');
+  const buttonLike = document.createElement('img');
   const logo = document.createElement('img');
   const marca = document.createElement('img');
   const legsImg = document.createElement('img');
   const footer = document.createElement('footer');
+
+  let editStatus = false;
+  let id = ';';
 
   header.classList = 'headerPetHouse';
 
@@ -44,6 +51,9 @@ export const Pethouse = () => {
   profile.id = 'profile';
   nav.appendChild(profile);
 
+  /* profileEmailSingin.textContent = auth.currentUser.email; */
+  nav.appendChild(profileEmailSingin);
+
   buttonLogout.classList = 'buttonLogout';
   nav.appendChild(buttonLogout);
 
@@ -56,15 +66,16 @@ export const Pethouse = () => {
 
   inputPost.classList = 'inputPostMessage';
   inputPost.rows = 3;
+  inputPost.id = 'inputText';
   inputPost.placeholder = 'Qué me cuentas?....';
   postform.appendChild(inputPost);
 
   buttonSubmitPost.id = 'btn-save-post';
-  buttonSubmitPost.textContent = 'enviar';
+  buttonSubmitPost.type = 'button';
   postform.appendChild(buttonSubmitPost);
 
   line.classList = 'line';
-  postform.appendChild(line);
+  section.appendChild(line);
 
   main.classList = 'mainPetHouse';
   section.appendChild(main);
@@ -75,14 +86,16 @@ export const Pethouse = () => {
   post.id = 'post';
   edition.appendChild(post);
 
-  postProfile.classList = 'profileContent';
+  /* postProfile.classList = 'profileContent';
   post.appendChild(postProfile);
 
   profilePost.src = './images/profile.png';
   profilePost.id = 'profilePost';
   postProfile.appendChild(profilePost);
 
-  
+  profileEmailPost.id = 'emailPost';
+  postProfile.appendChild(profileEmailPost);
+
   postText.classList = 'textPost';
   post.appendChild(postText);
 
@@ -102,34 +115,71 @@ export const Pethouse = () => {
 
   legsImg.src = './images/patitas.png';
   legsImg.id = 'legs';
-  footer.appendChild(legsImg);
+  footer.appendChild(legsImg); */
 
   onGetPost((querySnapshot) => {
+    let html = '';
     querySnapshot.forEach((doc) => {
       const getMessage = doc.data(); /// doc.id para editar
-      console.log(getMessage);
-      postText.textContent= getMessage.message;
-      
+      html += `
+        <div>
+          <h3> ${getMessage.message}</h3>
+          <p>${getMessage.email}</p>
+          <button class='btn-delete' data-id="${doc.id}">delete</button>
+          <button class='btn-edit' data-id="${doc.id}">edit</button>
+        </div>
+      `;
+      postText.textContent = getMessage.message;
+      profileEmailPost.textContent = getMessage.email;
+    });
+    post.innerHTML = html;
+    const btnsDelete = post.querySelectorAll('.btn-delete');
+    // console.log(btnsDelete);
+    btnsDelete.forEach((btn) => {
+      btn.addEventListener('click', ({ target: { dataset } }) => {
+        // { target: { dataset } }
+        // console.log('borrando', dataset.id);
+        deletePost(dataset.id);
+      });
+    });
+
+    const btnsEdit = post.querySelectorAll('.btn-edit');
+    btnsEdit.forEach((btn) => {
+      btn.addEventListener('click', async (e) => {
+        const doc = await onGetOnePost(e.target.dataset.id);
+        const postEdit = doc.data();
+        postform.inputText.value = postEdit.message;
+
+        editStatus = true;
+        id = doc.id;
+
+        // postform['btn-save-post'].innerText = 'update';
+      });
     });
   });
 
   buttonLogout.addEventListener('click', () => {
     auth.signOut()
       .then(() => {
-        // console.log('saliste de sesión');
       })
       .catch(() => {
 
       });
   });
 
-  buttonSubmitPost.addEventListener('click', (e) => {
+  buttonSubmitPost.addEventListener('click', async (e) => {
     e.preventDefault();
     const message = inputPost.value;
     const currentUser = auth.currentUser;
     const emailUser = currentUser.email;
-    console.log(message, emailUser);
-    createPost(message, emailUser);
+    if (!editStatus) {
+      createPost(message, emailUser);
+    } else {
+      await updatePost(id, { message, emailUser });
+      editStatus = false;
+    }
+
+    postform.reset();
   });
 
   body.append(header, nav, section, footer);

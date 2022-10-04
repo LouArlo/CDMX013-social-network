@@ -1,4 +1,5 @@
 import { onNavigate } from '../main.js';
+import { Register } from './Register.js';
 
 export const Welcome = () => {
   const body = document.createElement('body');
