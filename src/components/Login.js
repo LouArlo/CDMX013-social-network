@@ -102,6 +102,7 @@ export const Login = () => {
         // ...
         //     });
       });
+    section.reset();
   });
   buttonLogInGoogle.addEventListener('click', () => {
     // Log In with google

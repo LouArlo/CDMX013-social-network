@@ -20,6 +20,14 @@ body {
     justify-content: center;
 }
 
+.h2Login {
+    font-size: large;
+    margin: 1vh;
+}
+h3 {
+    font-size: small;
+
+}
 .headerPetHouse {
     grid-column-start: span 3;
     grid-row: span 1;
@@ -32,8 +40,6 @@ body {
     grid-column-end: span 1;
     grid-row: span 1;
     display: flex;
-    /* margin-left: 83vw; */
-    /* margin-top: -22vh; */
     flex-direction: row;
     justify-content: center;
     align-items: flex-end;
@@ -52,25 +58,17 @@ body {
 
 .sectionPetHouse {
     background-color: #E8DBCF;
-    /* background-image: url(./images/post-inicial.png); */
-    /* background-position: center; */
-    /* background-size: contain; */
     grid-column: span 4;
     grid-row: span 7;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* align-content: space-around; */
-    /* flex-wrap: nowrap; */
-    /* justify-content: flex-start; */
-    /* align-items: center;*/
 }
 
-#postform {
+#post-form {
     display: flex;
     grid-column: span 4;
     grid-row: span 1;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .mainPetHouse {
@@ -82,9 +80,9 @@ body {
 }
 
 .scroll {
-    width: 59vw;
-    height: 63vh;
-    /*overflow-y: scroll;*/
+    width: 84vw;
+    height: 54vh;
+   /*overflow-y: scroll;*/
 }
 
 /*#postFirst {
@@ -110,17 +108,21 @@ body {
 }
 
 .emailLabel {
-    margin-top: 11px;
-    margin-left: -53px;
+    margin-bottom: 1vh;
+    margin-left: -9vw;
+    font-size: medium;
 }
 
 .loginLabel {
     font-size: large;
+    margin-bottom: 1px;
+    font-size: large;
+    margin-left: -17vw;
 }
 
 .passLabel {
-    margin-top: 11px;
-    margin-left: -108px;
+    margin-bottom: 1vh;
+    margin-left: -18vw;
 }
 
 .suguestPass {
@@ -155,16 +157,20 @@ body {
 }
 
 .buttonGoogle {
-    width: 220px;
-    height: 42px;
+    width: 134px;
+    height: 29px;
     background-image: url(/images/btn_google.png);
     background-size: cover;
+    background-repeat: no-repeat;
+    /* background-color: transparent; */
+    border: none;
     border-radius: 10px;
+    cursor: pointer;
 }
 
-.buttonGoogle:hover {
+/*.buttonGoogle:hover {
     background-color: #579caa;
-}
+}*/
 
 .buttonLogout {
     width: 14px;
@@ -232,9 +238,9 @@ body {
 }
 
 .buttonE {
-    margin-top: 9px;
+    margin-top: 7px;
     width: 110px;
-    height: 42px;
+    height: 28px;
     background-position: 50px 50px;
     background-color: #B5D9E0;
     border: 1px solid #579caa;
@@ -249,7 +255,7 @@ body {
 
 .inputE {
     width: 220px;
-    height: 42px;
+    height: 28px;
     background: #CDCDE0;
     box-shadow: inset 0px 4px 4px rgb(0 0 0 / 25%);
     border-radius: 10px;
@@ -259,7 +265,7 @@ body {
 
 .inputP {
     width: 220px;
-    height: 42px;
+    height: 28px;
     mask-type: luminance;
     background: #CDCDE0;
     box-shadow: inset 0px 4px 4px rgb(0 0 0 / 25%);
@@ -307,7 +313,9 @@ body {
     width: 306px;
     height: 59px;
     background: #D6CBAF;
-    margin: 1px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
 }
 
 .postControls {
@@ -324,8 +332,7 @@ body {
     width: 306px;
     height: 90px;
     background: #D6CBAF;
-    margin: 1px;
-}
+}   
 
 .inputPostMessage {
     margin: 3px;
@@ -337,60 +344,59 @@ body {
 } 
 
 .buttonDelete {
-    width: 6vw;
+    width: 4vw;
     height: 4vh;
-    /* border-radius: 10px; */
     background-image: url(./images/trash.png);
-   /* background-repeat: no-repeat;*/
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: contain;
     border: none;
-    margin: 3px;
+    cursor: pointer;
 }
-.buttonDelete:hover {
-    background-color: #579caa;
-}
+/*.buttonDelete:hover {
+    background-color: #c1c3c4;
+}*/
 
 .buttonEdition {
-    width: 6vw;
+    width: 4vw;
     height: 4vh;
-    /* margin-left: 192px; */
-    /* width: 111px; */
-    /* height: 36px; */
-    border-radius: 10px;
     background-image: url(./images/edition.png);
-   /* background-repeat: no-repeat;*/
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: contain;
     border: none;
-    margin: 3px;
+    cursor: pointer;
 }
-.buttonEdition:hover {
+/*.buttonEdition:hover {
     background-color: #579caa;
-}
+}*/
 .buttonLike {
-    width: 6vw;
+    width: 4vw;
     height: 4vh;
-    /* margin-left: 192px; */
-    /* width: 111px; */
-    /* height: 36px; */
-    border-radius: 10px;
     background-image: url(./images/like.png);
-   /* background-repeat: no-repeat;*/
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: contain;
     border: none;
     margin: 3px;
+    cursor: pointer;
 }
-.buttonLike:hover {
+/*.buttonLike:hover {
     background-color: #579caa;
 }
 
-.buttonSave:hover {
+.buttonlike:hover {
     background-color: #1d2d30;
-}
+}*/
 
+#btn-save-post {
+    width: 4vw;
+    height: 4vh;
+    background-image: url(./images/enviar.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+}
 .line {
-    width: 414vw;
     height: 12px;
-    top: 155px;
     background: #CFB9A0;
 }
 /*.inputPostTitle {
