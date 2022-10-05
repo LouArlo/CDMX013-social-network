@@ -32,7 +32,7 @@ export const Pethouse = () => {
   const footer = document.createElement('footer');
 
   let editStatus = false;
-  let id = ';';
+  let id = '';
 
   header.classList = 'headerPetHouse';
 
@@ -51,8 +51,9 @@ export const Pethouse = () => {
   profile.id = 'profile';
   nav.appendChild(profile);
 
-  /* profileEmailSingin.textContent = auth.currentUser.email; */
+  profileEmailSingin.id = 'emailUser';
   nav.appendChild(profileEmailSingin);
+  // profileEmailSingin.textContent = emailUser;
 
   buttonLogout.classList = 'buttonLogout';
   nav.appendChild(buttonLogout);
@@ -65,7 +66,7 @@ export const Pethouse = () => {
   postform.appendChild(nav);
 
   inputPost.classList = 'inputPostMessage';
-  inputPost.rows = 3;
+  inputPost.rows = 4;
   inputPost.id = 'inputText';
   inputPost.placeholder = 'Qué me cuentas?....';
   postform.appendChild(inputPost);
@@ -86,7 +87,7 @@ export const Pethouse = () => {
   post.id = 'post';
   edition.appendChild(post);
 
-  /* postProfile.classList = 'profileContent';
+  /* postProfile.classList = 'profileContent'; ............
   post.appendChild(postProfile);
 
   profilePost.src = './images/profile.png';
@@ -109,24 +110,31 @@ export const Pethouse = () => {
   postControls.appendChild(buttonEdition);
 
   buttonLike.classList = 'buttonLike';
-  postControls.appendChild(buttonLike);
+  postControls.appendChild(buttonLike); */
 
   footer.classList = 'footerRegister';
 
   legsImg.src = './images/patitas.png';
   legsImg.id = 'legs';
-  footer.appendChild(legsImg); */
+  footer.appendChild(legsImg);
 
   onGetPost((querySnapshot) => {
     let html = '';
     querySnapshot.forEach((doc) => {
       const getMessage = doc.data(); /// doc.id para editar
       html += `
-        <div>
-          <h3> ${getMessage.message}</h3>
-          <p>${getMessage.email}</p>
-          <button class='btn-delete' data-id="${doc.id}">delete</button>
-          <button class='btn-edit' data-id="${doc.id}">edit</button>
+        <div class='profileContent'>
+          <div  id = 'profilePost'>
+            <img src ='./images/profile.png' id = 'profilePost'> </img>
+            <p id = 'emailPost'>${getMessage.email}</p>
+          </div> 
+          <div class='textPost'>
+            <h3> ${getMessage.message}</h3>
+          </div>
+          <div class='postControls'>       
+            <button class='btn-delete' data-id="${doc.id}"></button>
+            <button class='btn-edit' data-id="${doc.id}"></button>
+          </div>  
         </div>
       `;
       postText.textContent = getMessage.message;
@@ -139,7 +147,9 @@ export const Pethouse = () => {
       btn.addEventListener('click', ({ target: { dataset } }) => {
         // { target: { dataset } }
         // console.log('borrando', dataset.id);
-        deletePost(dataset.id);
+        //if (getMessage.email === auth.currentUser.email) {
+          deletePost(dataset.id);
+        //}
       });
     });
 
@@ -172,6 +182,7 @@ export const Pethouse = () => {
     const message = inputPost.value;
     const currentUser = auth.currentUser;
     const emailUser = currentUser.email;
+
     if (!editStatus) {
       createPost(message, emailUser);
     } else {
