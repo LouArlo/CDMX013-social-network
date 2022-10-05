@@ -80,9 +80,9 @@ h3 {
 }
 
 .scroll {
-    width: 84vw;
-    height: 54vh;
-   /*overflow-y: scroll;*/
+    /*width: 49vw;*/
+    height: 59vh;
+   overflow-y: scroll;
 }
 
 /*#postFirst {
@@ -91,8 +91,9 @@ h3 {
 }*/
 
 #post {
-    width: 307px;
-    height: 188px;
+    width: 315px;
+   /* height: 188px;*/
+   margin-bottom: 1px;
 
 }
 
@@ -113,6 +114,14 @@ h3 {
     font-size: medium;
 }
 
+#emailPost {
+    margin-left: 9vw;
+    margin-top: -10vh;
+}
+
+#emailUser {
+    margin-top: 3px;
+}
 .loginLabel {
     font-size: large;
     margin-bottom: 1px;
@@ -303,19 +312,20 @@ h3 {
 
 #profilePost {
     margin: 1vh;
-    border: #0f0300;
+    /*border: #0f0300;
     background: white;
     width: 16%;
-    border-radius: 241px;
+    border-radius: 241px;*/
 }
 
 .profileContent {
-    width: 306px;
-    height: 59px;
+    margin-bottom: 10px;
+    width: 315px;
+    height: 173px;
     background: #D6CBAF;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .postControls {
@@ -324,14 +334,15 @@ h3 {
     background: #D6CBAF;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-}
+    justify-content: space-between;
+ }
 
 .textPost {
-    width: 306px;
-    height: 90px;
-    background: #D6CBAF;
+    overflow-y: auto;
+    width: 315px;
+    height: 156px;
+    margin-top: 3vh;
+    /*background: #D6CBAF;*/
 }   
 
 .inputPostMessage {
@@ -343,10 +354,11 @@ h3 {
     border-radius: 10px;
 } 
 
-.buttonDelete {
+.btn-delete, .buttonDelete {
     width: 4vw;
     height: 4vh;
     background-image: url(./images/trash.png);
+    background-color: transparent;
     background-repeat: no-repeat;
     background-size: contain;
     border: none;
@@ -356,10 +368,11 @@ h3 {
     background-color: #c1c3c4;
 }*/
 
-.buttonEdition {
+.btn-edit, .buttonEdition {
     width: 4vw;
     height: 4vh;
     background-image: url(./images/edition.png);
+    background-color: transparent;
     background-repeat: no-repeat;
     background-size: contain;
     border: none;
@@ -372,6 +385,7 @@ h3 {
     width: 4vw;
     height: 4vh;
     background-image: url(./images/like.png);
+    background-color: transparent;
     background-repeat: no-repeat;
     background-size: contain;
     border: none;
